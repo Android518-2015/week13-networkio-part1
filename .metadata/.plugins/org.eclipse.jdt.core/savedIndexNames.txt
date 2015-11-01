@@ -1,0 +1,2 @@
+INDEX VERSION 1.127+/home/tricia/week13-networkio1/.metadata/.plugins/org.eclipse.jdt.core
+3573965231.index
