@@ -28,6 +28,7 @@ import android.widget.TextView;
  * 
  */
 public class HttpExample extends Activity {
+	private static final int MAXBYTES = 500;
 	private static final String TAG = "HttpURLConn";
 	private EditText urlText;
 	private TextView textView;
@@ -91,6 +92,7 @@ public class HttpExample extends Activity {
 			try {
 				return downloadUrl(urls[0]);
 			} catch (IOException e) {
+				Log.e(TAG, "exception" + Log.getStackTraceString(e));
 				return "Unable to retrieve web page. URL may be invalid.";
 			}
 		}
@@ -105,7 +107,7 @@ public class HttpExample extends Activity {
 		InputStream is = null;
 		// Only read the first 500 characters of the retrieved
 		// web page content.
-		int len = 500;
+		int len = MAXBYTES;
 		HttpURLConnection conn = null;
 		URL url = new URL(myurl);
 		try {
@@ -158,7 +160,9 @@ public class HttpExample extends Activity {
 			// read the stream (max len bytes)
 			String contentAsString = readIt(is, len);
 			return contentAsString;
-
+		} catch (IOException e) {
+			Log.e(TAG, "exception" + Log.getStackTraceString(e));
+			throw e;
 		} finally {
 			/*
 			 * Make sure that the InputStream is closed after the app is

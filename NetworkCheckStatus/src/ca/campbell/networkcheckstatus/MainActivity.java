@@ -82,8 +82,8 @@ public class MainActivity extends Activity {
 		if (connMgr != null ) {
 			networkInfo = connMgr.getActiveNetworkInfo();
 			// ALWAYS check isConnected() before initiating network traffic
-			if (networkInfo != null && networkInfo.isConnected()) {
-				tv2.setText("Network is connected");
+			if (networkInfo != null && networkInfo.isConnectedOrConnecting()) {
+				tv2.setText("Network is connected or connecting");
 				networkIsUp = true;
 			} else {
 				tv2.setText("No network connectivity");
@@ -107,29 +107,29 @@ public class MainActivity extends Activity {
 		} else {
 			switch (networkInfo.getState()) {
 			case CONNECTED:
-				message = "State Connected";
+				message = "Connected";
 				break;
 			case CONNECTING:
-				message = "State Connecting";
+				message = "Connecting";
 				break;
 			case DISCONNECTED:
-				message = "State Disconnected";
+				message = "Disconnected";
 				break;
 			case DISCONNECTING:
-				message = "State Disconnecting";
+				message = "Disconnecting";
 				break;
 			case SUSPENDED:
-				message = "State Suspened";
+				message = "Suspened";
 				break;
 			case UNKNOWN:
-				message = "State Unknown";
+				message = "Unknown";
 				break;
 			default:
 				message = "No valid State found";
 				break;
 			}
 
-			tv2.setText(message);
+			tv2.setText("State: "+message);
 		}
 
 	} // checkEverything()
@@ -146,37 +146,37 @@ public class MainActivity extends Activity {
 		} else {
 			switch (networkInfo.getDetailedState()) {
 			case IDLE:
-				message = "State Idle";
+				message = "Idle";
 				break;
 			case CONNECTED:
-				message = "State Connected";
+				message = "Connected";
 				break;
 			case CONNECTING:
-				message = "State Connecting";
+				message = "Connecting";
 				break;
 			case SCANNING:
-				message = "State Scanning: searching for an access point";
+				message = "Scanning: searching for an access point";
 				break;
 			case DISCONNECTED:
-				message = "State Disconnected";
+				message = "Disconnected";
 				break;
 			case DISCONNECTING:
-				message = "State Connected";
+				message = "Connected";
 				break;
 			case AUTHENTICATING:
-				message = "State Authenticating";
+				message = "Authenticating";
 				break;
 			case BLOCKED:
-				message = "State Block";
+				message = "Block";
 				break;
 			case OBTAINING_IPADDR:
-				message = "State awaiting DHCP response";
+				message = "awaiting DHCP response";
 				break;
 			case FAILED:
-				message = "State Failed";
+				message = "Failed";
 				break;
 			case VERIFYING_POOR_LINK:
-				message = "State Link has poor connectivity";
+				message = "Link has poor connectivity";
 				break;
 			default:
 				message = "No valid State found";
