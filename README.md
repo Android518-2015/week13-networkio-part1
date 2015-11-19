@@ -1,8 +1,13 @@
-# week03-SharedPreferences
-# SharedPreferences
-Sample code using shared preferences to save a userid
+# week13-networkio-part1
+# NetworkCheckStatus
+Sample code using ConnectivityManager and NetworkInfo
 
 Use of logcat to watch the logging
+adb logcat -s NETCHK
+# HttpURLConnectionExample
+Sample code using ConnectivityManager and NetworkInfo
+AsyncTask, HttpURLConnection, BufferedReader`
 
-adb logcat -s SHPREF
+Use of logcat to watch the logging
+adb logcat -s HttpURLConn
 
